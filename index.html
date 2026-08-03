@@ -6,10 +6,47 @@
   <title>Academic Vocabulary Mini App</title>
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
+  <header>
+    <a href="#home">Academic Vocabulary Mini-App</a>
+
+    <nav aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#learn">Learn</a>
+      <a href="#quiz">Quiz</a>
+    </nav>
+  </header>
+
   <main>
-    <h1>Academic Vocabulary Mini App</h1>
-    <p>Learn and practise academic vocabulary.</p>
+    <section id="home" aria-labelledby="page-title">
+      <h1 id="page-title">Academic Vocabulary Mini-App</h1>
+
+      <p>
+        Learn key academic vocabulary and test your understanding with a short quiz.
+      </p>
+
+      <h2>How to use this app</h2>
+
+      <ol>
+        <li>Open the Learn section and read each word, meaning and example sentence.</li>
+        <li>Open the Quiz section when you are ready to practise.</li>
+        <li>Select an answer for each question and read the feedback.</li>
+        <li>Review your final score and retry the quiz if you want more practice.</li>
+      </ol>
+
+      <a href="#learn">Start learning</a>
+    </section>
+
+    <section id="learn" aria-labelledby="learn-heading">
+      <h2 id="learn-heading">Learn</h2>
+      <p>Vocabulary items will be added in the next development task.</p>
+    </section>
+
+    <section id="quiz" aria-labelledby="quiz-heading">
+      <h2 id="quiz-heading">Quiz</h2>
+      <p>The vocabulary quiz will be added after the learning section is complete.</p>
+    </section>
   </main>
 
   <script src="app.js"></script>
