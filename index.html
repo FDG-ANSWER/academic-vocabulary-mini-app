@@ -9,7 +9,7 @@
 
 <body>
   <header>
-    <a href="#home">Academic Vocabulary Mini-App</a>
+    <a class="site-title" href="#home">Academic Vocabulary Mini-App</a>
 
     <nav aria-label="Main navigation">
       <a href="#home">Home</a>
@@ -35,11 +35,12 @@
         <li>Review your final score and retry the quiz if you want more practice.</li>
       </ol>
 
-      <a href="#learn">Start learning</a>
+      <a class="primary-link" href="#learn">Start learning</a>
     </section>
 
-    <section id="learn" class="app-section" aria-labelledby="learn-heading">
+    <section id="learn" class="app-section" aria-labelledby="learn-heading" hidden>
       <h2 id="learn-heading" tabindex="-1">Learn Academic Vocabulary</h2>
+
       <p>
         Read each word, its meaning and an example sentence before attempting the quiz.
       </p>
@@ -95,9 +96,91 @@
       </div>
     </section>
 
-    <section id="quiz" class="app-section" aria-labelledby="quiz-heading">
-      <h2 id="quiz-heading" tabindex="-1">Quiz</h2>
-      <p>The vocabulary quiz will be added after the learning section is complete.</p>
+    <section id="quiz" class="app-section" aria-labelledby="quiz-heading" hidden>
+      <h2 id="quiz-heading" tabindex="-1">Vocabulary Quiz</h2>
+
+      <form id="quiz-form">
+        <fieldset>
+          <legend>1. Which word means "to examine something carefully"?</legend>
+
+          <label>
+            <input type="radio" name="question-1" value="approach">
+            Approach
+          </label>
+
+          <label>
+            <input type="radio" name="question-1" value="analyse">
+            Analyse
+          </label>
+
+          <label>
+            <input type="radio" name="question-1" value="context">
+            Context
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>2. Which word means "facts or information collected for study"?</legend>
+
+          <label>
+            <input type="radio" name="question-2" value="concept">
+            Concept
+          </label>
+
+          <label>
+            <input type="radio" name="question-2" value="data">
+            Data
+          </label>
+
+          <label>
+            <input type="radio" name="question-2" value="significant">
+            Significant
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>3. Which word means "to judge the quality or value of something"?</legend>
+
+          <label>
+            <input type="radio" name="question-3" value="evaluate">
+            Evaluate
+          </label>
+
+          <label>
+            <input type="radio" name="question-3" value="approach">
+            Approach
+          </label>
+
+          <label>
+            <input type="radio" name="question-3" value="concept">
+            Concept
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>4. Which word means "important enough to have an effect"?</legend>
+
+          <label>
+            <input type="radio" name="question-4" value="context">
+            Context
+          </label>
+
+          <label>
+            <input type="radio" name="question-4" value="significant">
+            Significant
+          </label>
+
+          <label>
+            <input type="radio" name="question-4" value="assess">
+            Assess
+          </label>
+        </fieldset>
+
+        <button type="submit">Check answers</button>
+        <button type="button" id="retry-button">Retry quiz</button>
+      </form>
+
+      <p id="quiz-result" aria-live="polite"></p>
     </section>
 
     <p id="page-status" class="visually-hidden" aria-live="polite"></p>

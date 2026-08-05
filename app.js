@@ -1,39 +1,68 @@
 const sections = document.querySelectorAll(".app-section");
-const navigationLinks = document.querySelectorAll('a[href^="#"]');
+const quizForm = document.querySelector("#quiz-form");
+const retryButton = document.querySelector("#retry-button");
+const quizResult = document.querySelector("#quiz-result");
 const pageStatus = document.querySelector("#page-status");
 
+const validSectionIds = ["home", "learn", "quiz"];
+
 function showSection(sectionId) {
+  const targetSectionId = validSectionIds.includes(sectionId)
+    ? sectionId
+    : "home";
+
   sections.forEach((section) => {
-    const isSelected = section.id === sectionId;
-    section.hidden = !isSelected;
+    section.hidden = section.id !== targetSectionId;
   });
 
-  const selectedSection = document.querySelector(`#${sectionId}`);
-  const heading = selectedSection.querySelector("h1, h2");
+  const heading = document.querySelector(
+    `#${targetSectionId} h1, #${targetSectionId} h2`
+  );
 
-  navigationLinks.forEach((link) => {
-    const isCurrent = link.getAttribute("href") === `#${sectionId}`;
-    link.setAttribute("aria-current", isCurrent ? "page" : "false");
-  });
+  if (heading) {
+    heading.focus();
+  }
 
-  pageStatus.textContent = `${heading.textContent} page displayed.`;
-  window.scrollTo({ top: 0, behavior: "smooth" });
-  heading.focus({ preventScroll: true });
+  if (pageStatus) {
+    pageStatus.textContent = `${targetSectionId} section opened`;
+  }
 }
 
-navigationLinks.forEach((link) => {
-  link.addEventListener("click", (event) => {
-    const sectionId = link.getAttribute("href").slice(1);
+function showSectionFromHash() {
+  const sectionId = window.location.hash.replace("#", "") || "home";
+  showSection(sectionId);
+}
 
-    if (document.querySelector(`#${sectionId}`)) {
-      event.preventDefault();
-      showSection(sectionId);
-      window.history.replaceState(null, "", `#${sectionId}`);
+window.addEventListener("hashchange", showSectionFromHash);
+
+showSectionFromHash();
+
+quizForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const answers = {
+    "question-1": "analyse",
+    "question-2": "data",
+    "question-3": "evaluate",
+    "question-4": "significant"
+  };
+
+  let score = 0;
+
+  Object.entries(answers).forEach(([questionName, correctAnswer]) => {
+    const selectedAnswer = document.querySelector(
+      `input[name="${questionName}"]:checked`
+    );
+
+    if (selectedAnswer && selectedAnswer.value === correctAnswer) {
+      score += 1;
     }
   });
+
+  quizResult.textContent = `Your score: ${score} out of 4.`;
 });
 
-const initialSectionId = window.location.hash.slice(1);
-const validInitialSection = document.querySelector(`#${initialSectionId}`);
-
-showSection(validInitialSection ? initialSectionId : "home");
+retryButton.addEventListener("click", () => {
+  quizForm.reset();
+  quizResult.textContent = "";
+});

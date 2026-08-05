@@ -4,120 +4,154 @@
 
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.6;
-  color: #1f2937;
-  background-color: #f8fafc;
+  background-color: #f4f7f9;
+  color: #102a43;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.55;
 }
 
 header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 1rem;
-  padding: 1rem 5%;
-  background-color: #0f4c5c;
+  justify-content: space-between;
+  min-height: 94px;
+  padding: 0 68px;
+  background-color: #0f5668;
 }
 
-header > a {
+header a {
   color: #ffffff;
-  font-size: 1.2rem;
-  font-weight: bold;
   text-decoration: none;
+}
+
+.site-title {
+  font-size: 28px;
+  font-weight: 700;
 }
 
 nav {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: 20px;
 }
 
 nav a {
-  color: #ffffff;
-  text-decoration: none;
+  font-size: 20px;
 }
 
-nav a:hover {
+nav a:hover,
+nav a:focus {
   text-decoration: underline;
 }
 
 main {
-  width: min(1100px, 90%);
+  width: min(100% - 48px, 800px);
   margin: 0 auto;
-}
-
-section {
-  padding: 3rem 0;
-}
-
-section + section {
-  border-top: 1px solid #cbd5e1;
+  padding: 58px 0 80px;
 }
 
 h1,
 h2,
 h3 {
+  color: #0f5668;
   line-height: 1.2;
-  color: #0f4c5c;
 }
 
-#home > a {
+h1 {
+  margin: 0 0 32px;
+  font-size: 48px;
+}
+
+h2 {
+  margin: 32px 0 30px;
+  font-size: 36px;
+}
+
+h3 {
+  margin-top: 0;
+  font-size: 24px;
+}
+
+p {
+  margin: 0 0 28px;
+}
+
+ol {
+  margin: 0 0 30px;
+  padding-left: 42px;
+}
+
+.primary-link,
+button {
   display: inline-block;
-  padding: 0.7rem 1rem;
-  border-radius: 4px;
+  padding: 16px 24px;
+  border: 0;
+  border-radius: 6px;
+  background-color: #0f5668;
   color: #ffffff;
-  background-color: #0f4c5c;
+  font: inherit;
   text-decoration: none;
+  cursor: pointer;
 }
 
-#home > a:hover {
-  background-color: #083b47;
+button {
+  margin: 8px 8px 0 0;
 }
 
-a:focus-visible {
-  outline: 3px solid #f59e0b;
-  outline-offset: 3px;
+.primary-link:hover,
+.primary-link:focus,
+button:hover,
+button:focus {
+  background-color: #083d4a;
 }
 
 .vocabulary-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1rem;
-  margin-top: 1.5rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
 }
 
 .vocabulary-item {
-  border: 1px solid #cbd5e1;
-  border-radius: 8px;
-  padding: 1rem;
+  padding: 22px;
+  border: 1px solid #cbd5df;
+  border-radius: 6px;
   background-color: #ffffff;
-  box-shadow: 0 2px 4px rgb(15 76 92 / 10%);
-}
-
-.vocabulary-item h3 {
-  margin-top: 0;
 }
 
 .vocabulary-item p {
-  margin-bottom: 0.75rem;
+  margin-bottom: 14px;
 }
 
 .vocabulary-item p:last-child {
   margin-bottom: 0;
 }
 
-@media (max-width: 600px) {
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  section {
-    padding: 2rem 0;
-  }
+fieldset {
+  margin: 0 0 20px;
+  padding: 20px;
+  border: 1px solid #cbd5df;
+  border-radius: 6px;
+  background-color: #ffffff;
 }
-.app-section[hidden] {
-  display: none;
+
+legend {
+  padding: 0 8px;
+  font-weight: 700;
+}
+
+fieldset label {
+  display: block;
+  margin: 12px 0;
+  cursor: pointer;
+}
+
+input[type="radio"] {
+  margin-right: 10px;
+}
+
+#quiz-result {
+  margin-top: 24px;
+  font-weight: 700;
 }
 
 .visually-hidden {
@@ -125,9 +159,43 @@ a:focus-visible {
   width: 1px;
   height: 1px;
   padding: 0;
-  margin: -1px;
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+/* This makes the JavaScript section switching work even if other CSS exists. */
+.app-section[hidden] {
+  display: none !important;
+}
+
+@media (max-width: 700px) {
+  header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+    padding: 22px 24px;
+  }
+
+  .site-title {
+    font-size: 24px;
+  }
+
+  main {
+    width: min(100% - 32px, 800px);
+    padding-top: 40px;
+  }
+
+  h1 {
+    font-size: 38px;
+  }
+
+  h2 {
+    font-size: 30px;
+  }
+
+  .vocabulary-grid {
+    grid-template-columns: 1fr;
+  }
 }
