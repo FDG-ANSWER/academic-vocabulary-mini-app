@@ -1,20 +1,16 @@
 # Third-Party Resources
 
-## External Content and Assets
-
-The vocabulary definitions and example sentences in this application will be written and reviewed by the student for this project.
-
-No external images, videos, audio files, fonts, analytics services or tracking services are used.
-
 ## Libraries and Frameworks
 
-No third-party JavaScript libraries, CSS frameworks or templates are used. The application is built with HTML, CSS and vanilla JavaScript.
+No third-party JavaScript libraries, CSS frameworks or templates are used. The application is built with HTML5, CSS3 and vanilla JavaScript.
 
-## References
+## External Content
 
-The following resources may be consulted for general learning and verification:
+The academic vocabulary definitions and example sentences were written or adapted for this project. No external images, fonts, videos or other media assets are used.
 
-- MDN Web Docs for HTML, CSS and JavaScript reference material: https://developer.mozilla.org/
-- W3C Web Accessibility Initiative for accessibility guidance: https://www.w3.org/WAI/
+## References Used During Development
 
-Any additional external code, assets, tutorials or content used during development will be added to this document with an appropriate link and acknowledgement.
+- MDN Web Docs, HTML, CSS and JavaScript reference material: https://developer.mozilla.org/
+- W3C Web Accessibility Initiative, accessibility guidance: https://www.w3.org/WAI/
+
+Any additional tutorials, code examples, assets or content actually used must be added to this file with a link and a clear acknowledgement.
