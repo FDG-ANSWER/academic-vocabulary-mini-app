@@ -199,3 +199,36 @@ input[type="radio"] {
     grid-template-columns: 1fr;
   }
 }
+.question-correct {
+  border-color: #238636;
+  background-color: #f0fff4;
+}
+
+.question-incorrect {
+  border-color: #c62828;
+  background-color: #fff5f5;
+}
+
+.answer-correct {
+  color: #176b2c;
+  font-weight: 700;
+}
+
+.answer-incorrect {
+  color: #b42318;
+  font-weight: 700;
+}
+
+.question-feedback {
+  margin: 18px 0 0;
+  padding: 14px;
+  border-left: 4px solid #0f5668;
+  background-color: #ffffff;
+  font-size: 16px;
+}
+
+#quiz-result {
+  padding: 16px;
+  border-left: 4px solid #0f5668;
+  background-color: #ffffff;
+}
