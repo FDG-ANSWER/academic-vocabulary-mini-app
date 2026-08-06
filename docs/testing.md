@@ -20,7 +20,7 @@
 | T10 | Use keyboard with radio buttons and buttons | Radio controls and both buttons can be reached and operated. | [enter actual result] | [Pass/Fail] |
 | T11 | Test a narrow viewport | Text, controls and quiz content remain readable without overlapping. | [enter actual result] | [Pass/Fail] |
 | T12 | Check browser console during navigation and quiz submission | No major JavaScript errors are shown. | [enter actual result] | [Pass/Fail] |
-
+| T13 | Select and change quiz answers | The progress indicator updates from 0 to 6 answered and resets to 0 after Retry. | [enter actual result] | [Pass/Fail] |
 ## Defects and Improvements
 
 Record only real defects found during testing. Example format:

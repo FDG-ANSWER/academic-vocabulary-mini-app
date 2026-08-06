@@ -3,6 +3,9 @@ const quizForm = document.querySelector("#quiz-form");
 const retryButton = document.querySelector("#retry-button");
 const quizResult = document.querySelector("#quiz-result");
 const pageStatus = document.querySelector("#page-status");
+const answeredCount = document.querySelector("#answered-count");
+const questionCount = document.querySelector("#question-count");
+const quizProgressBar = document.querySelector("#quiz-progress-bar");
 
 const validSectionIds = ["home", "learn", "quiz"];
 
@@ -79,6 +82,19 @@ function clearQuestionFeedback() {
   });
 }
 
+function updateQuizProgress() {
+  const totalQuestions = Object.keys(questions).length;
+  const answeredQuestions = document.querySelectorAll(
+    '#quiz-form input[type="radio"]:checked'
+  ).length;
+
+  answeredCount.textContent = answeredQuestions;
+  questionCount.textContent = totalQuestions;
+  quizProgressBar.value = answeredQuestions;
+  quizProgressBar.max = totalQuestions;
+  quizProgressBar.textContent = `${answeredQuestions} of ${totalQuestions} answered`;
+}
+
 function createFeedback(isCorrect, selectedText, question) {
   const feedback = document.createElement("p");
   const status = document.createElement("strong");
@@ -104,6 +120,11 @@ function createFeedback(isCorrect, selectedText, question) {
 
 window.addEventListener("hashchange", showSectionFromHash);
 showSectionFromHash();
+document.querySelectorAll('#quiz-form input[type="radio"]').forEach((input) => {
+  input.addEventListener("change", updateQuizProgress);
+});
+
+updateQuizProgress();
 
 quizForm.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -151,4 +172,5 @@ retryButton.addEventListener("click", () => {
   quizForm.reset();
   quizResult.textContent = "";
   clearQuestionFeedback();
+  updateQuizProgress();
 });

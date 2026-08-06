@@ -85,6 +85,14 @@
     <section id="quiz" class="app-section" aria-labelledby="quiz-heading" hidden>
       <h2 id="quiz-heading" tabindex="-1">Vocabulary Quiz</h2>
       <p>Choose one answer for each question, then select Check answers.</p>
+      <div class="quiz-progress" aria-labelledby="progress-label">
+  <p id="progress-label" class="quiz-progress-label">
+    Answered: <span id="answered-count">0</span> of <span id="question-count">6</span>
+  </p>
+  <progress id="quiz-progress-bar" value="0" max="6" aria-describedby="progress-label">
+    0 of 6 answered
+  </progress>
+</div>
 
       <form id="quiz-form">
         <fieldset>
